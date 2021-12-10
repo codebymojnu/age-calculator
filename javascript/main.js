@@ -9,17 +9,14 @@ document.querySelector('#btn').addEventListener('click', function(){
 })
 
 function userData(birthDate, birthMonth, birthYear, todayDate, currentMonth, currentYear){
-    console.log(birthDate, birthMonth, birthYear, todayDate, currentMonth, currentYear);
     if(birthDate > todayDate && birthMonth > currentMonth){
-        todayDate = parseInt(todayDate) + 31;
+        todayDate = parseInt(todayDate) + 30;
         currentMonth = parseInt(currentMonth) + 11;
         currentYear = parseInt(currentYear) - 1;
     }
     if(birthDate > todayDate){
         todayDate = parseInt(todayDate) + 30;
         birthMonth = parseInt(birthMonth) + 1;
-        console.log(todayDate);
-        console.log(birthMonth);
     }
     if(birthMonth > currentMonth){
         currentMonth = parseInt(currentMonth) + 12;
@@ -29,7 +26,7 @@ function userData(birthDate, birthMonth, birthYear, todayDate, currentMonth, cur
 }
 
 function subtraction(birthDate, birthMonth, birthYear, todayDate, currentMonth, currentYear){
-    const day = todayDate - birthDate;
+    const day = (todayDate - birthDate) + 1;
     const month = currentMonth - birthMonth;
     const year = currentYear - birthYear;
     const para = document.createElement('p');
