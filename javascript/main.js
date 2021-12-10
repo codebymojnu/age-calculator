@@ -1,26 +1,33 @@
 document.querySelector('#btn').addEventListener('click', function(){
-    const birthDate = document.querySelector('#birthDate').value;
-    const birthMonth = document.querySelector('#birthMonth').value;
-    const birthYear = document.querySelector('#birthYear').value;
-    const todayDate = document.querySelector('#todayDate').value;
-    const currentMonth = document.querySelector('#currentMonth').value;
-    const currentYear = document.querySelector('#currentYear').value;
+    let birthDate = document.querySelector('#birthDate').value;
+    let birthMonth = document.querySelector('#birthMonth').value;
+    let birthYear = document.querySelector('#birthYear').value;
+    let todayDate = document.querySelector('#todayDate').value;
+    let currentMonth = document.querySelector('#currentMonth').value;
+    let currentYear = document.querySelector('#currentYear').value;
     userData(birthDate, birthMonth, birthYear, todayDate, currentMonth, currentYear);
 })
 
 function userData(birthDate, birthMonth, birthYear, todayDate, currentMonth, currentYear){
+    birthDate = parseInt(birthDate);
+    birthMonth = parseInt(birthMonth);
+    birthYear = parseInt(birthYear);
+    todayDate = parseInt(todayDate);
+    currentMonth = parseInt(currentMonth);
+    currentYear = parseInt(currentYear);
+    
     if(birthDate > todayDate && birthMonth > currentMonth){
-        todayDate = parseInt(todayDate) + 30;
-        currentMonth = parseInt(currentMonth) + 11;
-        currentYear = parseInt(currentYear) - 1;
+        todayDate = todayDate + 30;
+        currentMonth = currentMonth + 11;
+        currentYear = currentYear - 1;
     }
     if(birthDate > todayDate){
-        todayDate = parseInt(todayDate) + 30;
-        birthMonth = parseInt(birthMonth) + 1;
+        todayDate = todayDate + 30;
+        birthMonth = birthMonth + 1;
     }
     if(birthMonth > currentMonth){
-        currentMonth = parseInt(currentMonth) + 12;
-        currentYear = parseInt(currentYear) - 1;
+        currentMonth = currentMonth + 12;
+        currentYear = currentYear - 1;
     }
     subtraction(birthDate, birthMonth, birthYear, todayDate, currentMonth, currentYear);
 }
