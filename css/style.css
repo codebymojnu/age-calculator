@@ -6,7 +6,7 @@ div {
     margin: 20px;
 }
 button {
-    margin-left: 20px;
+    margin-left: 30px;
     width: 100px;
     height: 36px;
     padding: 5px;
@@ -16,7 +16,7 @@ button {
 }
 input{
     width: 150px;
-    margin: 5 px;
+    margin-left: 10px;
     height: 27px;
     padding: 3px;
     font-size: 1.3em;
@@ -31,4 +31,11 @@ span {
     padding: 3px;
     display: block;
     width: 450px;
+}
+.container{
+    width: 600px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
 }
