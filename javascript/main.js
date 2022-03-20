@@ -57,7 +57,7 @@ document.querySelector('#calculateBtn').addEventListener('click', function(){
 
 function calculateAge(jonmoDate, jonmoMonth, jonmoYear, todayDate, todayMonth, todayYear) {
     if(jonmoDate > todayDate){
-        jonmoDate = jonmoDate + 30;
+        todayDate = todayDate + 30;
         jonmoMonth = jonmoMonth + 1;
     }
 
