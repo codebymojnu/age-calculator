@@ -1,42 +1,79 @@
-document.querySelector('#btn').addEventListener('click', function(){
-    let birthDate = document.querySelector('#birthDate').value;
-    let birthMonth = document.querySelector('#birthMonth').value;
-    let birthYear = document.querySelector('#birthYear').value;
-    let todayDate = document.querySelector('#todayDate').value;
-    let currentMonth = document.querySelector('#currentMonth').value;
-    let currentYear = document.querySelector('#currentYear').value;
-    userData(birthDate, birthMonth, birthYear, todayDate, currentMonth, currentYear);
-})
+const date = new Date();
 
-function userData(birthDate, birthMonth, birthYear, todayDate, currentMonth, currentYear){
-    birthDate = parseInt(birthDate);
-    birthMonth = parseInt(birthMonth);
-    birthYear = parseInt(birthYear);
-    todayDate = parseInt(todayDate);
-    currentMonth = parseInt(currentMonth);
-    currentYear = parseInt(currentYear);
-    
-    if(birthDate > todayDate && birthMonth > currentMonth){
-        todayDate = todayDate + 30;
-        currentMonth = currentMonth + 11;
-        currentYear = currentYear - 1;
-    }
-    if(birthDate > todayDate){
-        todayDate = todayDate + 30;
-        birthMonth = birthMonth + 1;
-    }
-    if(birthMonth > currentMonth){
-        currentMonth = currentMonth + 12;
-        currentYear = currentYear - 1;
-    }
-    subtraction(birthDate, birthMonth, birthYear, todayDate, currentMonth, currentYear);
+// for date option
+
+for(let i=1; i < 32; i++){
+    const option = document.createElement('option');
+    option.innerText = i;
+    option.setAttribute('value', i);
+    document.querySelector('#date').appendChild(option);
 }
 
-function subtraction(birthDate, birthMonth, birthYear, todayDate, currentMonth, currentYear){
-    const day = (todayDate - birthDate) + 1;
-    const month = currentMonth - birthMonth;
-    const year = currentYear - birthYear;
-    const para = document.createElement('p');
-    document.querySelector('#showAge').appendChild(para);
-    document.querySelector('p').innerHTML = `<span>Result</span><br/> ${year} years ${month} months ${day} days`
+// for month option
+
+for(let i=1; i < 13; i++){
+    const option = document.createElement('option');
+    var  months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    option.innerText = months[i-1];
+    option.setAttribute('value', i);
+    document.querySelector('#month').appendChild(option);
+}
+
+// আজ তারিখের জন্য 
+
+for(let i=1; i < 32; i++){
+    const option = document.createElement('option');
+    option.innerText = i;
+    option.setAttribute('value', i);
+    if(i == date.getDate()){
+        option.setAttribute('selected', 'selected');
+    }
+    document.querySelector('#ajDate').appendChild(option);
+}
+
+for(let i=1; i < 13; i++){
+    const option = document.createElement('option');
+    var  months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    option.innerText = months[i-1];
+    option.setAttribute('value', i);
+    if(i-1 == date.getMonth()){
+        option.setAttribute('selected', 'selected');
+    }
+    document.querySelector('#ajMonth').appendChild(option);
+}
+
+// hit calculate Btn
+document.querySelector('#calculateBtn').addEventListener('click', function(){
+    let jonmoDate = document.querySelector('#date').value;
+    let jonmoMonth = document.querySelector('#month').value;
+    let jonmoYear = document.querySelector('#year').value;
+    let todayDate = document.querySelector('#ajDate').value;
+    let todayMonth = document.querySelector('#ajMonth').value;
+    let todayYear = document.querySelector('#ajYear').value;
+    calculateAge(+jonmoDate, +jonmoMonth, +jonmoYear, +todayDate, +todayMonth, +todayYear);
+})
+
+// calculate age function
+
+function calculateAge(jonmoDate, jonmoMonth, jonmoYear, todayDate, todayMonth, todayYear) {
+    if(jonmoDate > todayDate){
+        jonmoDate = jonmoDate + 30;
+        jonmoMonth = jonmoMonth + 1;
+    }
+
+    if(jonmoMonth > todayMonth){
+        todayMonth = todayMonth + 12;
+        todayYear = todayYear - 1;
+    }
+
+    const day = todayDate - jonmoDate;
+    const month = todayMonth - jonmoMonth;
+    const year = todayYear - jonmoYear;
+    showAgeUi(day, month, year);
+}
+
+// function show age ui
+function showAgeUi(day, month, year){
+    const result = document.querySelector('#result');
+    result.innerHTML = `<p>${year} বছর, ${month} মাস, ${day} দিন</p>`
 }

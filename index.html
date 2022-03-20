@@ -10,21 +10,30 @@
 </head>
 
 <body>
-    <div class="container">
-        <div>
-            <div id="showAge"></div>
-            <div>
-                <input type="number" name="" id="birthDate" placeholder="Birth Date">
-                <input type="number" name="" id="birthMonth" placeholder="Birth Month">
-                <input type="number" name="" id="birthYear" placeholder="Birth Year">
-            </div>
-            <div>
-                <input type="number" name="" id="todayDate" placeholder="Today's Date">
-                <input type="number" name="" id="currentMonth" placeholder="Current Month">
-                <input type="number" name="" id="currentYear" placeholder="Current Year">
-            </div>
-            <button id="btn">Calculate</button>
+    <div>
+        <div id="result">
+
         </div>
+        <span>জন্ম তারিখ</span>
+        <select name="date" id="date">
+
+        </select>
+        <select name="month" id="month">
+
+        </select>
+        <input type="text" name="year" id="year" placeholder="1998" />
+        <br />
+        <span>আজ তারিখ</span>
+        <select name="ajDate" id="ajDate">
+
+        </select>
+        <select name="ajMonth" id="ajMonth">
+
+        </select>
+        <input type="text" name="ajYear" id="ajYear" placeholder="2022" />
+        <br />
+        <br />
+        <button id="calculateBtn">Calculate</button>
     </div>
     <script src="javascript/main.js"></script>
 </body>
