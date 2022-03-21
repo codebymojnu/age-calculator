@@ -50,7 +50,12 @@ document.querySelector('#calculateBtn').addEventListener('click', function(){
     let todayDate = document.querySelector('#ajDate').value;
     let todayMonth = document.querySelector('#ajMonth').value;
     let todayYear = document.querySelector('#ajYear').value;
-    calculateAge(+jonmoDate, +jonmoMonth, +jonmoYear, +todayDate, +todayMonth, +todayYear);
+    if(todayYear.length === 4 && jonmoYear.length === 4){
+        calculateAge(+jonmoDate, +jonmoMonth, +jonmoYear, +todayDate, +todayMonth, +todayYear);
+    }
+    else{
+        alert("সঠিক সাল দিয়ে চেষ্টা করো।")   
+    }
 })
 
 // calculate age function
