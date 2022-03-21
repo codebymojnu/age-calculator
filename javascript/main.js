@@ -53,6 +53,9 @@ document.querySelector('#calculateBtn').addEventListener('click', function(){
     if(todayYear.length === 4 && jonmoYear.length === 4){
         calculateAge(+jonmoDate, +jonmoMonth, +jonmoYear, +todayDate, +todayMonth, +todayYear);
     }
+    else if(todayYear.length !== 4 || jonmoYear.length !== 4){
+        alert("সঠিক সাল দিয়ে চেষ্টা করো।")
+    }
     else{
         alert("সঠিক সাল দিয়ে চেষ্টা করো।")   
     }
