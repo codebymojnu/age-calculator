@@ -50,7 +50,7 @@ document.querySelector('#calculateBtn').addEventListener('click', function(){
     let todayDate = document.querySelector('#ajDate').value;
     let todayMonth = document.querySelector('#ajMonth').value;
     let todayYear = document.querySelector('#ajYear').value;
-    if(jonmoYear.length === 4 || todayYear === 4){
+    if(jonmoYear.length === 4 && todayYear === 4){
         calculateAge(+jonmoDate, +jonmoMonth, +jonmoYear, +todayDate, +todayMonth, +todayYear);
     }
     else{
