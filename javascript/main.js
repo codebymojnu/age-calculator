@@ -54,7 +54,7 @@ document.querySelector('#calculateBtn').addEventListener('click', function(){
         calculateAge(+jonmoDate, +jonmoMonth, +jonmoYear, +todayDate, +todayMonth, +todayYear);
     }
     else{
-        alert('please give the right year');
+        alert('Please give the right year.');
     }
 })
 
