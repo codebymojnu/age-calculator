@@ -65,7 +65,7 @@ document.querySelector('#calculateBtn').addEventListener('click', function(){
         alert("যে সালে তোমার বয়স বের করতে চাও, জন্ম সাল সেই সাল থেকে বড় হতে পারে না!") ;
     }
     else{
-        calculateAge(+jonmoDate, +jonmoMonth, jonmoYear, +todayDate, +todayMonth, todayYear);
+        calculateAge(+jonmoDate, +jonmoMonth, +jonmoYear, +todayDate, +todayMonth, +todayYear);
     }
 })
 
