@@ -50,14 +50,22 @@ document.querySelector('#calculateBtn').addEventListener('click', function(){
     let todayDate = document.querySelector('#ajDate').value;
     let todayMonth = document.querySelector('#ajMonth').value;
     let todayYear = document.querySelector('#ajYear').value;
-    if(todayYear.length === 4 && jonmoYear.length === 4){
-        calculateAge(+jonmoDate, +jonmoMonth, +jonmoYear, +todayDate, +todayMonth, +todayYear);
+
+    if(!todayYear){
+        todayYear = date.getFullYear();
     }
-    else if(todayYear.length !== 4 || jonmoYear.length !== 4){
-        alert("সঠিক সাল দিয়ে চেষ্টা করো।")
+
+    const todayYearStr = '' + todayYear;
+    const jonmoYearStr = '' + jonmoYear;
+
+    if(todayYearStr.length !== 4 || jonmoYearStr.length !== 4){
+        alert("4 ডিজিটের একটি সাল দাও।");
+    }
+    else if(jonmoYear > todayYear){
+        alert("যে সালে তোমার বয়স বের করতে চাও, জন্ম সাল সেই সাল থেকে বড় হতে পারে না!") ;
     }
     else{
-        alert("সঠিক সাল দিয়ে চেষ্টা করো।")   
+        calculateAge(jonmoDate, jonmoMonth, jonmoYear, todayDate, todayMonth, todayYear);
     }
 })
 

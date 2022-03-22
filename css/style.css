@@ -6,11 +6,24 @@ body{
 
 span{
     display: inline-block;
-    width: 100px;
+    width: 120px;
 }
 
 #result{
     color: red;
+}
+
+/* input design */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 @media screen and (max-width: 480px) {
@@ -20,6 +33,6 @@ span{
     }
     input{
         display: inline-block;
-        width: 50px;
+        width: 60px;
     }
 }
